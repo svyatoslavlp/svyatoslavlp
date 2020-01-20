@@ -4,17 +4,14 @@
     затемнение тёмносерый #8C8987,
     темный бордовый #401B22 */
 
-* {
-  margin: 0;
-  padding: 0;
-  font-family: 'Arial', sans-serif;
-}
+@import url(./normalize.css);
 body {
+  font-family: 'Arial', sans-serif;
   background-color: #D7D7D9;
   width: 100%;
 }
 .container{
-  width: 1400px;
+  width: 900px;
   height: 100vh;
   margin: 0 auto;
   background-color: #fff;
