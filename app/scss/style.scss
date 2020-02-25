@@ -15,6 +15,7 @@ body {
   padding: 0 1%;
   font-family: "Roboto", sans-serif;
   color: $color;
+  margin: 0 auto;
 }
 .container {
   max-width: 1440px;
@@ -25,28 +26,33 @@ body {
 .nav-main {
   max-width: 1440px;
   width: inherit;
-  height: 40px;
+  height: 60px;
   display: flex;
-  justify-content: space-between;
+  justify-content: space-around;
   align-items: center;
   position: fixed;
   padding: 0 1%;
   z-index: 99;
   background-color: $background-color-aspect;
+
   &__logo {
   }
+
   &__bookmarks {
     flex-basis: 50%;
     display: flex;
     justify-content: space-around;
     align-items: baseline;
+
     &_bookmark {
     }
   }
+
   &__social-links {
     flex-basis: 10%;
     display: flex;
     justify-content: space-between;
+
     &_link {
     }
   }
@@ -61,3 +67,60 @@ body {
   width: 100%;
   height: 40px;
 }
+.header-main {
+  width: 100%;
+  display: flex;
+  justify-content: space-evenly;
+  align-items: center;
+  padding: 3%;
+
+  &__text {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    width: 60%;
+    height: 300px;
+    justify-content: center;
+
+    &_subtitle {
+      font-size: 2.5em;
+      line-height: 1.5em;
+    }
+
+    &_title {
+      font-size: 3em;
+      line-height: 1.5em;
+    }
+
+    &_description {
+      font-size: 1.5em;
+      line-height: 1.5em;
+    }
+
+    &_button {
+      line-height: 1.5em;
+    }
+  }
+
+  &__avatar {
+    display: block;
+    height: 300px;
+    width: 300px;
+    background-image: url('../img/avatar.jpg');
+    background-size: cover;
+    border-radius: 15%;
+    border: 3px solid $background-color-aspect;
+  }
+}
+
+
+
+.wow {
+}
+.fadeInLeft {
+}
+.button {
+}
+.fadeIn {
+}
+
