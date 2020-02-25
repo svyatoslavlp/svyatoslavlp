@@ -53,14 +53,14 @@ gulp.task('code', function() {
   return gulp.src('app/*.html').pipe(browserSync.reload({ stream: true }));
 });
 
-gulp.task('css-libs', function() {
-  return gulp
-    .src('app/scss/**/*.+(scss|sass)') // Выбираем файл для минификации
-    .pipe(sass()) // Преобразуем Sass в CSS посредством gulp-sass
-    .pipe(cssnano()) // Сжимаем
-    .pipe(rename({ suffix: '.min' })) // Добавляем суффикс .min
-    .pipe(gulp.dest('app/css')); // Выгружаем в папку app/css
-});
+// gulp.task('css-libs', function() {
+//   return gulp
+//     .src('app/scss/**/*.+(scss|sass)') // Выбираем файл для минификации
+//     .pipe(sass()) // Преобразуем Sass в CSS посредством gulp-sass
+//     .pipe(cssnano()) // Сжимаем
+//     .pipe(rename({ suffix: '.min' })) // Добавляем суффикс .min
+//     .pipe(gulp.dest('app/css')); // Выгружаем в папку app/css
+// });
 
 gulp.task('clean', async function() {
   return del.sync('dist'); // Удаляем папку dist перед сборкой
@@ -88,7 +88,7 @@ gulp.task('prebuild', async function() {
   var buildCss = gulp
     .src([
       // Переносим библиотеки в продакшен
-      'app/css/main.css',
+      'app/css/*.css',
       // 'app/css/libs.min.css'
     ])
     .pipe(gulp.dest('dist/css'));
@@ -113,17 +113,17 @@ gulp.task('clear', function(callback) {
 gulp.task('watch', function() {
   gulp.watch('app/scss/**/*.+(scss|sass)', gulp.parallel('sass')); // Наблюдение за sass файлами
   gulp.watch('app/*.html', gulp.parallel('code')); // Наблюдение за HTML файлами в корне проекта
-  gulp.watch(
-    ['app/js/common.js', 'app/libs/**/*.js'],
-    gulp.parallel('scripts')
-  ); // Наблюдение за главным JS файлом и за библиотеками
+  // gulp.watch(
+  //   ['app/js/main.js', 'app/libs/**/*.js'],
+  //   gulp.parallel('scripts')
+  // ); // Наблюдение за главным JS файлом и за библиотеками
 });
 
 gulp.task(
   'default',
-  gulp.parallel('css-libs', 'sass', 'scripts', 'browser-sync', 'watch')
-);
+  gulp.parallel('sass', 'browser-sync', 'watch')
+); // 'css-libs',  'scripts',
 gulp.task(
   'build',
-  gulp.parallel('prebuild', 'clean', 'img', 'sass', 'scripts')
-);
+  gulp.parallel('prebuild', 'clean', 'img', 'sass')
+); // , 'scripts'

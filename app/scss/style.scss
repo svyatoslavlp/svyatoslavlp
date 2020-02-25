@@ -1,0 +1,63 @@
+@import "./nullstyle.scss";
+//цвет фона
+$background-color: #f0f0f2;
+// цвет фона с выделением:
+// фон меню
+$background-color-aspect: #d9d9d9;
+// основной цвет:
+// текст
+$color: #73503c;
+
+html {
+  background-color: $background-color;
+}
+body {
+  padding: 0 1%;
+  font-family: "Roboto", sans-serif;
+  color: $color;
+}
+.container {
+  max-width: 1440px;
+  width: 100%;
+  margin: 0 auto;
+  position: relative;
+}
+.nav-main {
+  max-width: 1440px;
+  width: inherit;
+  height: 40px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  position: fixed;
+  padding: 0 1%;
+  z-index: 99;
+  background-color: $background-color-aspect;
+  &__logo {
+  }
+  &__bookmarks {
+    flex-basis: 50%;
+    display: flex;
+    justify-content: space-around;
+    align-items: baseline;
+    &_bookmark {
+    }
+  }
+  &__social-links {
+    flex-basis: 10%;
+    display: flex;
+    justify-content: space-between;
+    &_link {
+    }
+  }
+}
+.link-bookmark {
+  text-decoration: none;
+  color: $color;
+  font-size: 1.3em;
+}
+.nav-main-stub {
+  display: block;
+  width: 100%;
+  height: 40px;
+}
